@@ -14,13 +14,23 @@ if __name__ == '__main__':
     # passagem da própria classe como parâmetro
     # é feita implicitamente pelo python
     print(p.cumprimentar())
+
     # manipulando atributos de instancia
     print(p.nome)
     p.nome = 'Aguiar'
     print(p.nome)
+
     # manipulando atributos complexos
     diego = p
     juarez = Pessoa(diego, nome='Juarez')
     print(juarez.nome)
     for filho in juarez.filhos:
         print(filho.nome)
+
+    # manipulando atributos dinamicos
+    juarez.sobrenome = 'Aguiar'
+    print(juarez.sobrenome)
+    print(juarez.__dict__)
+    print(diego.__dict__)
+    del diego.filhos
+    print(diego.__dict__)
