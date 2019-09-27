@@ -22,6 +22,10 @@ class Homem(Pessoa):
     pass
 
 
+class Mutante(Pessoa):
+    olhos = 3  # sobrescrita de atributo de classe
+
+
 if __name__ == '__main__':
     p = Homem(nome='Diego')  # utilizando herença
     print(id(p))
@@ -66,6 +70,7 @@ if __name__ == '__main__':
     print(Pessoa.olhos)
     print(juarez.olhos)
     print(diego.olhos)
+    Pessoa.olhos = 2
 
     # metodos de classe (utilizando decoreitor @)
     # acessando diretamente pela classe e pelo objeto
@@ -76,6 +81,10 @@ if __name__ == '__main__':
     pessoa = Pessoa('Anonimo')
     print(isinstance(pessoa, Pessoa))
     print(isinstance(pessoa, Homem))
-
     print(isinstance(diego, Pessoa))
     print(isinstance(diego, Homem))
+
+    mutante = Mutante('TesteMutante')
+    print(diego.olhos)
+    print(mutante.olhos)
+
