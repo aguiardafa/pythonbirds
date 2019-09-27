@@ -7,7 +7,8 @@ class Pessoa:
         self.filhos = list(filhos)
 
     def cumprimentar(self):
-        return f'Olá {id(self)}'
+        # return f'Olá {id(self)}'
+        return f'Olá, meu nome é  {self.nome}'
 
     @staticmethod
     def metodo_estatico():
@@ -19,11 +20,18 @@ class Pessoa:
 
 
 class Homem(Pessoa):
-    pass
+    # sobrescrever porém utilizando o método da classe pai
+    def cumprimentar(self):
+        cumprimentar_da_classe_pai = super().cumprimentar()
+        return f'{cumprimentar_da_classe_pai}. Aberto de mão'
 
 
 class Mutante(Pessoa):
     olhos = 3  # sobrescrita de atributo de classe
+
+    # apenas sobreescrever
+    def cumprimentar(self):
+        return 'Olhar estranho'
 
 
 if __name__ == '__main__':
@@ -87,4 +95,8 @@ if __name__ == '__main__':
     mutante = Mutante('TesteMutante')
     print(diego.olhos)
     print(mutante.olhos)
+
+    # sobrescrita de metodo
+    print(diego.cumprimentar())
+    print(mutante.cumprimentar())
 
