@@ -17,8 +17,13 @@ class Pessoa:
     def nome_e_atributos_de_classe(cls):
         return f'{cls} - olhos {cls.olhos}'
 
+
+class Homem(Pessoa):
+    pass
+
+
 if __name__ == '__main__':
-    p = Pessoa(nome='Diego')
+    p = Homem(nome='Diego')  # utilizando herença
     print(id(p))
     print(Pessoa.cumprimentar(p))
     # passagem da própria classe como parâmetro
@@ -46,8 +51,8 @@ if __name__ == '__main__':
     print(diego.__dict__)
 
     # atributo de classe (atributos default)
-    print(Pessoa.olhos)
-    print(juarez.olhos)
+    print(Pessoa.olhos)  # acessando diretamente pela class
+    print(juarez.olhos)  # acessando pelo objeto
     print(diego.olhos)
     print(id(Pessoa.olhos), id(juarez.olhos), id(diego.olhos))
     diego.olhos = 1
@@ -61,3 +66,16 @@ if __name__ == '__main__':
     print(Pessoa.olhos)
     print(juarez.olhos)
     print(diego.olhos)
+
+    # metodos de classe (utilizando decoreitor @)
+    # acessando diretamente pela classe e pelo objeto
+    print(Pessoa.metodo_estatico(), diego.metodo_estatico())
+    print(Pessoa.nome_e_atributos_de_classe(), diego.nome_e_atributos_de_classe())
+
+    # trabalhando com herança
+    pessoa = Pessoa('Anonimo')
+    print(isinstance(pessoa, Pessoa))
+    print(isinstance(pessoa, Homem))
+
+    print(isinstance(diego, Pessoa))
+    print(isinstance(diego, Homem))
