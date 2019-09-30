@@ -52,7 +52,8 @@ class AtorTestes(TestCase):
         """
         ator = Ator(2, 2)  # Ator recém criado deve ter status ativo
         ator2 = Ator(2, 2)
-        self.assert_colisao_atores_ativos(ator, ator2)
+        self.assert_colisao_atores_ativos(ator, ator2)  # em caso de estarem na mesma posição
+        # em caso de estarem em posições adjacentes
         self.assert_colisao_atores_ativos(Ator(2, 2), Ator(2, 3))
         self.assert_colisao_atores_ativos(Ator(2, 2), Ator(3, 3))
         self.assert_colisao_atores_ativos(Ator(2, 2), Ator(3, 2))
@@ -113,7 +114,7 @@ class AtorTestes(TestCase):
     def assert_colisao_atores_ativos(self, ator, ator2, intervalo=1):
         """
         Se certifica que há colisão entre atores ativos
-        Atenção: Esse não é método de teste porque nao se inicia com prefixo "text".
+        Atenção: Esse não é método de teste porque nao se inicia com prefixo "test".
         Ele serve apenas para encapsular toda lógica de teste de colisão entre dois atores ativos
         """
         # Conferindo status dos dois atores antes da colisão
