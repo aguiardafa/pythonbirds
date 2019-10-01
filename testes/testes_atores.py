@@ -170,7 +170,7 @@ class PorcoTestes(TestCase):
 class PassaroBaseTests(TestCase):
     """
     Classe base para teste de passaros.
-    Essa classe não contèm nenhum teste, serve apenas para encapsular a lógica de asserção de posição de passaros
+    Essa classe não contém nenhum teste, serve apenas para encapsular a lógica de asserção de posição de passaros
     vermelhos e também dos amarelos.
 
     """
@@ -210,7 +210,7 @@ class PassaroVermelhoTests(PassaroBaseTests):
 
     def teste_foi_lancado(self):
         """
-        Teste de lançamento. Enquanto o método lançar do passaro não for chamado, o méotodo foi_lancado deve retornar
+        Teste de lançamento. Enquanto o método lançar do passaro não for chamado, o método foi_lancado deve retornar
         Falso
         :return:
         """
@@ -260,16 +260,13 @@ class PassaroAmareloTests(PassaroBaseTests):
 
     def teste_lacamento_vertical(self):
         """
-        Tests de lançamento vertical. Nele, o passaro só se move verticalmente e sua posição y se matém contanstante
+        Tests de lançamento vertical. Nele, o passaro só se move verticalmente e sua posição y se mantém constante
         :return:
         """
         passaro_amarelo = PassaroAmarelo(1, 1)
         passaro_amarelo.lancar(90, 2)  # passaro lancado a 90 graus no tempo 2 segundos
 
-
-
         # subindo
-
         self.assert_posicao_vertical(1, 2.0, passaro_amarelo)
         self.assert_posicao_vertical(1, 2.01, passaro_amarelo)
         self.assert_posicao_vertical(2, 2.02, passaro_amarelo)
@@ -278,7 +275,6 @@ class PassaroAmareloTests(PassaroBaseTests):
         self.assert_posicao_vertical(2, 2.05, passaro_amarelo)
 
         # descendo
-
         self.assert_posicao_vertical(46, 5.26, passaro_amarelo)
         self.assert_posicao_vertical(46, 5.27, passaro_amarelo)
         self.assert_posicao_vertical(46, 5.279999999999999, passaro_amarelo)
